@@ -1,6 +1,7 @@
 @charset "utf-8";
+
 /* 반응형 이미지 */
-.rwd-container{
+.container{
   display: flex;
   flex-wrap: wrap;
 }
