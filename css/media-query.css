@@ -1,5 +1,6 @@
 @charset "utf-8";
 
+/* 모든 디바이스 */
 *{
   margin: 0;
   padding: 0;
@@ -7,59 +8,85 @@
   font-size: 1em;
   font-weight: 400;
 }
-/* 컨테이너 */
+/* all 컨테이너 */
 .container{
-  background: silver;
-  display: flex;
-  flex-flow: row wrap;
+background: silver;
+display: flex;
+flex-flow: row wrap;
 }
-/* 헤더 */
+/* all 헤더 */
 .header{
-  background: yellow;
-  height: 10vh;
-  width: 100%;
-  order: -1;
+background: yellow;
+height: 10vh;
 }
-/* 네비게이션 */
+/* all 네비게이션 */
 .navigation{
-  background: pink;
-  height: 10vh;
-  width: 100%;
-  order: -1;
+background: pink;
+height: 10vh;
 }
-/* 메인 콘텐츠 */
+/* all 메인 콘텐츠 */
 .main-content{
-  background: skyblue;
-  height: 50vh;
-  width: 100%;
+background: skyblue;
+height: 50vh;
 }
-/* 광고 */
+/* all 광고 */
 .ad{
-  background: orange;
-  height: 20vh;
-  width: 100%;
-  order: -1;
+background: orange;
+height: 20vh;
 }
-/* 푸터 */
+/* all 푸터 */
 .footer{
-  background: lime;
-  height: 10vh;
-  width: 100%;
+background: lime;
+height: 10vh;
 }
-@media screen and (min-width: 801px){
-  /* 랩탑 컨테이너 */
-  .container{
-    max-width: 1200px;
-    margin: 0 auto;
+/* 모바일 스타일 */
+@media screen and (max-width: 799px){
+  /* mobile 헤더 */
+  .header{
+  flex: 1 1 100%;
+  order: -1;
   }
-  /* 랩탑 메인콘텐츠 */
+  /* mobile 네비게이션 */
+  .navigation{
+  flex: 1 1 100%;
+  order: -1;
+  }
+  /* mobile메인 콘텐츠 */
   .main-content{
-    width: 80%;
-    order: -1;
+  height: 50vh;
+  flex: 1 1 100%
   }
-  /* 랩탑 광고 */
+  /* mobile 광고 */
   .ad{
-    width: 20%;
-    order: 0;
+  flex: 1 1 100%;
+  order: -1;
+  }
+  /* 푸터 */
+  .footer{
+  flex: 1 1 100%;
+  height: 10vh;
   }
 }
+/* 태블릿 스타일 */
+@media screen and (min-width: 50em){
+  /* 컨테이너 */
+  .container{
+
+  }
+  /* 메인콘텐츠 */
+  .main-content{
+
+  }
+  /* 광고 */
+  .ad{
+
+  }
+}
+ /* 랩탑 스타일 */
+ @media screen and (min-width: 64em){
+   
+ }
+ /* 와이스 스크린 스타일 */
+ @media screen and (min-width: 100em){
+
+ }
