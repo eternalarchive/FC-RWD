@@ -1,0 +1,203 @@
+@charset "utf-8";
+
+.container{
+  background: silver;
+  display: grid;
+  max-width: 1600px;
+  margin: 0 auto;
+}
+.header{
+  background: yellow;
+  grid-area: head;
+}
+.navigation{
+  background: pink;
+  grid-area: nav;
+}
+.content{
+  background: skyblue;
+  grid-area: content;
+}
+.ad{
+  background: lime;
+  grid-area: ad;
+}
+.footer{
+  background: orange;
+  grid-area: foot;
+}
+/* 선생님이 해주신 area[식별자] */
+@media screen and (max-width: 800px){
+  .container{
+    grid-template-columns: 1fr 1fr;
+    grid-auto-rows: minmax(50px, auto);
+    grid-template-areas: "head head"
+    "nav nav"
+    "ad content"
+    "foot foot"
+  }
+  .header, .navigation, .ad{
+    order: -1;
+  }
+  /* .header, .navigation, .footer{
+    grid-column: 1/ span 2;
+  } */
+  .content{
+    height: calc(100vh - 150px);
+  }
+}
+/* 800이상 */
+@media screen and (min-width: 800px){
+  .container{
+    grid-template-columns: 1fr 3fr 1fr;
+    grid-auto-rows: minmax(100px, auto);
+    grid-template-areas: "head head head"
+    "nav content ad"
+    "foot foot foot"
+  }
+  /* .header, .footer{
+    grid-column: 1/ span 3;
+  } */
+  .navigation, .content, .ad{
+    height: calc(100vh - 200px);
+  }
+}
+/* 내가짠 area[식별자] */
+/* @media screen and (max-width: 800px){
+  .container{
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(5, minmax(50px, auto));
+    grid-template-areas: "header header"
+    "navigation navigation"
+    "ad content"
+    "ad content"
+    "footer footer"
+  }
+  .content{
+    height: calc(100vh - 150px);
+  }
+  .header{
+    grid-area: header;
+  }
+  .navigation{
+    grid-area: navigation;
+  }
+  .content{
+    grid-area: content;
+  }
+  .ad{
+    grid-area: ad;
+  }
+  .footer{
+    grid-area: footer;
+  }
+}
+
+@media screen and (min-width: 800px){
+  .container{
+    grid-template-columns: 1fr 3fr 1fr;
+    grid-template-rows: repeat(3, minmax(50px, auto));
+    grid-template-areas: "header header header"
+    "navigation content ad"
+    "footer footer"
+  }
+} */
+
+/* 선생님이 해주신 모바일 레이아웃 */
+/* @media screen and (max-width: 800px){
+  .container{
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(5, minmax(50px, auto));
+  }
+  .header, .navigation, .ad{
+    order: -1;
+  }
+  .header, .navigation, .footer{
+    grid-column: 1/ span 2;
+  }
+  .content{
+    height: calc(100vh - 150px);
+  }
+} */
+/* 800이상 */
+/* @media screen and (min-width: 800px){
+  .container{
+    grid-template-columns: 1fr 3fr 1fr;
+    grid-auto-rows: minmax(50px, auto);
+  }
+  .header, .footer{
+    grid-column: 1/ span 3;
+  }
+  .navigation, .content, .ad{
+    height: calc(100vh - 100px);
+  }
+} */
+
+/* 내가짠거 */
+/* 800px미만 */
+/* .container{
+  background: silver;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(5, 2fr);
+  grid-template-rows: repeat(5, 20vh);
+  max-width: 1600px;
+}
+.header{
+  background: yellow;
+  grid-row: 1/2;
+  grid-column: 1/6;
+}
+.navigation{
+  background: pink;
+  grid-row: 2/3;
+  grid-column: 1/6;
+}
+.content{
+  background: skyblue;
+  grid-row: 3/4;
+  grid-column: 1/6;
+}
+.ad{
+  background: lime;
+  grid-row: 4/5;
+  grid-column: 1/6;
+}
+.footer{
+  background: orange;
+  grid-row: 5/6;
+  grid-column: 1/6;
+}
+
+@media all and (max-width: 50em){
+  .ad{
+    grid-row: 3/4;
+    grid-column: 1/6;
+  }
+  .content{
+    background: skyblue;
+    grid-row: 4/5;
+    grid-column: 1/6;
+  }
+}
+@media all and (min-width: 50em){
+  .navigation{
+    grid-row: 2/5;
+    grid-column: 1/2;
+  }
+  .content{
+    grid-row: 2/5;
+    grid-column: 2/5;
+  }
+  .ad{
+    order: 0;
+    grid-row: 2/5;
+    grid-column: 5/6;
+  }
+}
+@media all and (min-width: 100em){
+  .container{
+    margin: 0 auto;
+  }
+} */
