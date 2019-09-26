@@ -1,136 +1,26 @@
 @charset "utf-8";
-
-/* 모든 디바이스 */
-*{
-  margin: 0;
-  padding: 0;
-  list-style-type: none;
-  font-size: 1em;
-  font-weight: 400;
+/* Mobile CSS */
+html{
+  font-size: 10px;
 }
-/* all 컨테이너 */
-.container{
-  background: silver;
-  display: flex;
-  /* flex-flow: row wrap; */
-  flex-wrap: wrap;
-  flex-direction: row;
+body{
+  background-color: yellow;
 }
-/* all 헤더 */
-.header{
-  background: yellow;
-}
-/* all 네비게이션 */
-.navigation{
-  background: pink;
-}
-/* all 메인 콘텐츠 */
-.main-content{
-  background: skyblue;
-}
-/* all 광고 */
-.ad{
-  background: orange;
-}
-/* all 푸터 */
-.footer{
-  background: lime;
-}
-/* 모바일 스타일 */
-/* mobile 헤더 */
-.header{
-  flex-basis: 100%;
-  height: 50px;
-}
-/* mobile 네비게이션 */
-.navigation{
-  flex-basis: 100%;
-  height: 50px;;
-}
-/* mobile메인 콘텐츠 */
-.main-content{
-  flex-basis: 100%;
-  height: calc(100vh - 200px);
-}
-/* mobile 광고 */
-.ad{
-  flex-basis: 100%;
-  height: 50px;
-}
-/* mobile 푸터 */
-.footer{
-  flex-basis: 100%;
-  height: 50px;
-}
-
-/* 태블릿 스타일 */
+/* Tablet, Laptop CSS */
 @media screen and (min-width: 50em){
-  /* table 컨테이너 */
-  .header{
-    flex-basis: 70%;
+  html{
+    font-size: 14px;
   }
-  /* table 네비게이션 */
-  .navigation{
-    flex-basis: 30%;
+  body{
+    background-color: pink;
   }
-  /* table 메인콘텐츠 */
-  .main-content{
-    height: calc(100vh - 150px);
-  }
-  /* table 레아이웃 순서 */
-  .header, .navigation, .ad{
-    order: -1;
-  }
- 
 }
- /* 랩탑 스타일 */
- @media screen and (min-width: 64em){
-  /* lab 컨테이너 */
-  .header{
-    flex-basis: 100%
+/* Wide Screen CSS */
+@media screen and (min-width: 64em){
+  html{
+    font-size: 20px;
   }
-  /* lab 네비게이션 */
-  .navigation{
-    flex-basis: 100%;
+  body{
+    background-color: skyblue;
   }
-  /* lab 메인콘텐츠 */
-  .main-content{
-    flex-basis: 70%;
-  }
-  /* lab 광고 */
-  .ad{
-    flex-basis: 30%;
-    height: calc(100vh - 150px);
-  }
-  /* labtop 레이아웃 순서 */
-  .navigation{
-    order: -2;
-  }
- }
- /* 와이스 스크린 스타일 */
- @media screen and (min-width: 100em){
-   /* wide 네비게이션 순서 */
-   .navigation, .ad{
-     order: 0;
-   }
-  /* wide 컨테이너 */
-  .header{
-    flex-basis: 100%;
-  }
-  /* wide 네비게이션 */
-  .navigation{
-    flex-basis: 30%;
-  }
-  /* wide 메인콘텐츠 */
-  .main-content{
-    flex-basis: 50%;
-  }
-  /* wide 광고 */
-  .ad{
-    flex-basis: 20%;
-  }
-  /* wide 높이 조절 */
-  .navigation, .main-content, .ad{
-    height: calc(100vh - 100px);
-  }
- }
+}
