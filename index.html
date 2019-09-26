@@ -17,8 +17,8 @@
       </h1>
       <ul class="member">
         <li><a href="#">로그인</a></li>
-        <li><a href="#">회원가입</a></li>
-        <li><a href="#">커뮤니티</a></li>
+        <li><span class="bar"></span><a href="#">회원가입</a></li>
+        <li><span class="bar"></span><a href="#">커뮤니티</a></li>
       </ul>
       <form
         action="javascript:alert('검색이 완료되었습니다.');"
@@ -88,11 +88,55 @@
       </ul>
     </nav>
     <main class="main flex-row">
-      <section class="book col-m4 col-d4">추천서적</section>
-      <section class="news col-m4 col-d8">새소식</section>
-      <section class="board col-m4 col-d4">게시판</section>
-      <section class="favorite col-m4 col-d3">인기사이트</section>
-      <article class="twitter col-m4 col-d5">트위터</article>
+      <section class="book col-m4 col-d4">
+        <h2 class="book-heading sprite">
+          <span>추천 서적</span><span class="point">Recommend Book</span>
+        </h2>
+        <figure class="book-cover">
+            <img
+              src="images/book_rwd.jpg"
+              class="responsive"
+              alt=""
+              aria-labelledby="cover-caption"
+            />
+            <figcaption id="bookcover-caption" class="bookcover-caption">
+              반응형웹 핵심 가이드북 도서
+            </figcaption>
+          </figure>
+          <dl class="book-detail">
+            <dt class="book-author">저자</dt>
+            <dd class="author-name">김데레사</dd>
+            <dt class="a11y-hidden">평점</dt>
+            <dd class="book-grade" aria-label="5점 만점에 4점">
+              <span aria-hidden="true">★★★★☆</span>
+            </dd>
+          </dl>
+          <p class="book-summary">
+              반응형웹 디자인을 위한 핵심 내용을 다루고 있으며 미디어쿼리, 유연한
+              레이아웃, 반응형 이미지 기법을 학습할 수 있다. 모바일 및 다양한
+              해상도에 대응이 가능한 웹디자인을 이 책으로 시작해 보자!
+          </p>
+      </section>
+      <section class="news col-m4 col-d8">
+        <h2 class="news-heading sprite">
+          <span>새소식</span><span class="point">WebCafe News</span>
+        </h2>
+      </section>
+      <section class="board col-m4 col-d4">
+        <h2 class="board-heading sprite">
+            <span>게시판</span><span class="point">WebCafe Board</span>
+        </h2>
+      </section>
+      <section class="favorite col-m4 col-d3">
+        <h2 class="favorite-heading sprite">
+            <span>인기 사이트</span><span class="point">Favorite Site</span>
+        </h2>
+      </section>
+      <article class="twitter col-m4 col-d5">
+        <h2 class="twitter-heading sprite">
+            <span>트위터</span><span class="point">WebCafe Twitter</span>
+        </h2>
+      </article>
     </main>
     <footer class="footer">푸터</footer>
   </div>

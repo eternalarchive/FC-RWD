@@ -1,12 +1,21 @@
 @charset "utf-8";
 @import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css);
 @import url(./fonts.css);
+
+:root{
+  --point1: #abd375;
+  --point2: #e8ca58;
+  --point3: #c7b39a;
+  --point4: #eea60a;
+  --point5: #6aaee6;
+}
+
 *, *::before, *::after { 
   font-family: 'Spoqa Han Sans', 'Sans-serif'; 
   box-sizing: border-box;
 }
 /* Reset CSS */
-ul, ol, li{
+ul, ol{
   list-style: none;
   padding-left: 0;
 }
@@ -42,23 +51,28 @@ a{
   justify-content: space-evenly;
 }
 
+/* Responsive content */
+.responsive{
+  max-width: 100%;
+  height: auto;
+}
 
 /* ALL Device*/
-.container{
+/* .container{
   background: silver;
 }
 .header{
   background: yellow;
-}
-.navigation{
+} */
+/* .navigation{
   background: pink;
-}
-.main{
+} */
+/* .main{
   background: skyblue;
-}
-.book{
+} */
+/* .book{
   background: lime;
-}
+} */
 .news{
   background: goldenrod;
 }
@@ -73,6 +87,83 @@ a{
 }
 .footer{
   background: orange;
+}
+/* All main content */
+.sprite{
+  background: url('./images/sprite_main.png') no-repeat;
+  height: 60px;
+  padding-left: 65px;
+}
+.main [class*="heading"]{
+  font-size: 1.2em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.news-heading{
+  background-position: 0 -230px;
+}
+.board-heading{
+  background-position: 0 -115px;
+}
+.favorite-heading{
+  background-position: 0 -345px;
+}
+.twitter-heading{
+  background-position: 0 -460px;
+}
+.book-heading .point{
+  /* color: #abd375; */
+  color: var(--point1);
+}
+.news-heading .point{
+  /* color: #e8ca58; */
+  color: var(--point2);
+}
+.board-heading .point{
+  /* color: #c7b39a; */
+  color: var(--point3);
+}
+.favorite-heading .point{
+  /* color: #eea60a; */
+  color: var(--point4);
+}
+.twitter-heading .point{
+  /* color: #6aaee6; */
+  color: var(--point5);
+}
+/* All search */
+.search{
+  text-align: right;
+}
+[type="search"]{
+  border: 1px solid #aaa;
+  border-radius: 0.35em;
+  height: 2em;
+  margin-right: 0.5em;
+}
+/* 추천 도서 */
+.book-cover{
+  text-align: center;
+}
+.book-detail{
+  /* background: yellow; */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.author-name{
+  margin-left: 0.5em;
+}
+.book-grade{
+  margin: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 1.5em;
+  color: var(--point1);
+}
+[class$="summary"]{
+  line-height: 2;
 }
 
 /* Mobile Device */
@@ -123,16 +214,19 @@ a{
     margin-left: 1em;
   }
   /* mobile search */
-  .search{
+  [type="search"]{
+    width: calc(100% - 3em);
+  }
+  /* .search{
     text-align: right;
   }
   [type="search"]{
     border: 1px solid #aaa;
     border-radius: 0.35em;
-    height: 2em; /*버튼하고 똑같은 높이*/
+    height: 2em;
     width: calc(100% - 3em);
     margin-right: 0.5em;
-  }
+  } */
   .btn-search{
     border: 0 none;
     padding: 0;
@@ -160,8 +254,9 @@ a{
     position: absolute;
     top: 5em;
     right: 20px;
-    background: blue;
+    background: transparent;
     overflow: hidden;
+    cursor: pointer;
   }
   .menubar{
     background: #fff;
@@ -194,6 +289,54 @@ a{
     top: 50%;
     transform: translateY(-50%) rotate(-45deg);
   }
+  .menu{
+    position: fixed;
+    top: 0;
+    left: 0;
+    /* width: 75vw; */ /*nav-act로 내리자*/
+    width: 0;
+    overflow: hidden;
+    /* height: 100vh;
+    background: rgba(0,0,0,0.85);
+    color: #fff;
+    margin: 0;
+    padding: 2em; */
+    transform: translateX(-100%);
+    transition: all 200ms;
+  }
+  .nav-act .menu{
+    transform: none;
+    width: 75vw;
+    height: 100vh;
+    background: rgba(0,0,0,0.85);
+    color: #fff;
+    margin: 0;
+    padding: 2em;
+  }
+  .menu-list{
+    margin: 0.5em 0;
+  }
+  .menu-item{
+    padding: 0.5em;
+    /* background: purple; */
+    display: block;
+  }
+  .sub-menu{
+    display: none;
+    list-style: disc; /*이게 안먹은 이유는 위에 초기화해버려서 먹도록 삭제함*/
+    padding-left: 2em;
+    margin: 1em;
+  }
+  .sub-menu a{
+    padding: 0.5em 0;
+    display: block;
+  }
+  .sub-menu li{
+    margin: 0.5em;
+  }
+  .menu-act .sub-menu{
+    display: block;
+  }
 }
 /* Desktop Device */
 @media screen and (min-width: 62.5em){
@@ -213,11 +356,90 @@ a{
   .container{
     align-items: center;
   }
-  .header, .main{
+  .header, .main, .menu{
     width: 1000px;
   }
   .navigation, .footer{
     width: 100%;
+  }
+  /* Desktop header */
+  .header{
+    /* background: yellow; */
+    display: block;
+    position: relative;
+    padding-bottom: 1.5em;
+  }
+  /* Desktop logo */
+  .logo{
+    /* background: blue; */
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    margin: 0;
+    /* display: none; */
+  }
+  /* Desktop member */
+  .member{
+    display: flex;
+    justify-content: flex-end;
+    /* background: lime; */
+  }
+  .bar::before{
+    content: "|";
+    margin: 0 1em;
+    
+  }
+  .member a{
+    /* background: pink; */
+    display: inline-block;
+    padding: 0.5em 0;
+  }
+  /* Desttop search */
+  [type="search"]{
+    width: 40%;
+  }
+  .btn-search{
+    border: 1px solid #aaa;
+    border-radius: 0.35em;
+    background: #988674;
+    color: #fff;
+    height: 2em;
+    padding: 0 1em;
+  }
+  /* Desktop main menu */
+  .navigation{
+    background: #988574;
+    color: #fff;
+    /* border-top: 2px solid #000;
+    border-bottom: 2px solid #000; */
+    box-shadow: 0 -1px 2px 0 #aaa, 0 1px 2px 0 #aaa;
+  }
+  .btn-menubar{
+    display: none;
+  }
+  .menu{
+    /* background: orange; */
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: space-between;
+  }
+  .menu-item{
+    /* background: blue; */
+    font-weight: 700;
+    font-size: 1.15em;
+    padding: 0.35em 0;
+    display: block;
+    text-shadow: 1px 0 0 #000, 0 1px 0 #000, -1px 0 0 #000, 0 -1px 0 #000;
+  }
+  .sub-menu li{
+    margin: 0.5em 0;
+  }
+  .sub-menu a{
+    /* background: purple; */
+    display: block;
+    padding: 0.35em 0;
   }
   .main{
     justify-content: space-between;
