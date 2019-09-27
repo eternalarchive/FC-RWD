@@ -1,9 +1,12 @@
 var viewport = window.matchMedia('(max-width: 999px)');
 var items = $('.menu-item');
+var board_list = $('.board-list > li');
 
 $(window).resize(function(){
   location.reload();
 });
+
+board_list.attr('class', 'icon-star');
 
 if(viewport.matches){
   var nav = $('.navigation');
